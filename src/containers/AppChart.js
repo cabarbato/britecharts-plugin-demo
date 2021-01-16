@@ -20,14 +20,16 @@ class AppChart extends React.Component {
       category: props.category,
       page: 0,
       offset: 0,
-      per_page: 3
+      per_page: 3,
+      page_count: 0
     }
   }
-  getCategories() {
+  getCategories(reset) {
     const { category, categories } = this.props,
       { per_page, offset } = this.state,
+      o = reset ? 0: offset,
       data = category.length ? categories.filter(d => category == d[process.env.REACT_APP_SAMPLE_CATEGORY]) : categories,
-      slice = data.slice(offset, offset + per_page),
+      slice = data.slice(o, o + per_page),
       displayed = slice.map((d, i) => <div className="chart" key={i}>
         <Row className="chart-category align-items-center">
           <Col sm={8}>
@@ -75,19 +77,19 @@ class AppChart extends React.Component {
     pymChild.sendHeight();
   }
   shouldComponentUpdate(next_props) {
-    if (next_props.category != this.state.category) this.getCategories()
+    if (next_props.category != this.state.category) this.getCategories(true)
     return true;
   }
   render() {
-    const { displayed } = this.state;
+    const { displayed, page_count } = this.state;
 
     return !displayed ? <></> : <main>
       {displayed}
       <Row>
         <Col className="d-flex justify-content-center">
           <ReactPaginate
-            previousLabel={<><i class="fas fa-angle-left"></i> Prev</>}
-            nextLabel={<>Next <i class="fas fa-angle-right"></i></>}
+            previousLabel={<><i className="fas fa-angle-left"></i> Prev</>}
+            nextLabel={<>Next <i className="fas fa-angle-right"></i></>}
             breakLabel={"..."}
             breakClassName={"break-me"}
             marginPagesDisplayed={1}
@@ -95,7 +97,8 @@ class AppChart extends React.Component {
             onPageChange={this.onPageClick}
             containerClassName={"pagination"}
             subContainerClassName={"pages pagination"}
-            activeClassName={"active"} />
+            activeClassName={"active"}
+            pageCount={page_count} />
         </Col>
       </Row>
       <Row as="footer">

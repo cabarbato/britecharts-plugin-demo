@@ -30,6 +30,9 @@ class AppNav extends React.Component {
       $('.combobox-container input[type="hidden"]')
         .attr('value', category)
         .change(onSetCategory)
+      $('.combobox-container .input-group-append')
+        .attr('value', category)
+        .click(() => $('.combobox-container input[type="hidden"]').trigger('change'))
     });
   }
   render() {
