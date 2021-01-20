@@ -6,21 +6,25 @@ import { getCategories } from '../actions/actions';
 import AppHeader from '../components/AppHeader';
 import AppNav from '../components/AppNav';
 import AppChart from './AppChart';
-import data from '../assets/sample_data/data.csv';
+import * as data from '../assets/data/data.csv';
 
-const $ = window.$,
-  mapStateToProps = state => ({
+type AppProps = {
+  categories,
+  onGetCategories
+};
+
+const mapStateToProps = state => ({
     categories: state.categoryReducer.categories
   }),
   mapDispatchToProps = dispatch => ({
     onGetCategories: (e) => (dispatch(getCategories(e)))
   });
 
-class App extends React.Component {
+class App extends React.Component<AppProps> {
   constructor(props) {
     super(props)
 
-    d3.csv(data)
+    d3.csv(data.default)
       .then(d => props.onGetCategories(d));
   }
   render() {

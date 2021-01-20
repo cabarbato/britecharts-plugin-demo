@@ -1,18 +1,21 @@
-@import "bootstrap";
-@import "@fortawesome/fontawesome-free/css/all.css";
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&display=swap");
+@import "@fortawesome/fontawesome-free/css/all.css";
 @import "variables";
+@import "bootstrap";
+
+//Breakpoints
+$max-sm: #{map-get($grid-breakpoints, "sm") - 1};
+$max-md: #{map-get($grid-breakpoints, "md") - 1};
 
 html,
 body {
   font-size: 14px;
   color: $dark;
-  font-family: "Montserrat", sans-serif;
 
-  @media (max-width: 767px) {
+  @media (max-width: $max-md) {
     font-size: 12px;
   }
-  @media (max-width: 575px) {
+  @media (max-width: $max-sm) {
     font-size: 11px;
   }
 }
@@ -51,64 +54,25 @@ header {
 }
 
 nav {
-  .combobox-container {
-    .input-group {
-      .form-control {
-        text-align: center;
-        border: 1px solid $green;
-      }
+  .btn,
+  .dropdown-menu {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
 
-      .dropdown-menu {
-        width: 100%;
-        top: 31px !important;
-        border: none;
-        border-radius: 0px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-
-        li {
-          padding-left: 1.5rem;
-          a {
-            white-space: initial;
-            border-bottom: 1px solid $light;
-            padding: 0.5rem 1rem 0.5rem 0;
-            color: $dark;
-
-            &:hover,
-            &:focus,
-            &.active {
-              background-color: transparent;
-              color: $green;
-            }
-          }
-        }
-      }
-
-      .input-group-append {
-        background-color: $green;
-        border: 1px solid $green;
-        .dropdown-toggle {
-          background-color: transparent;
-          border: none;
-          border-radius: 0px;
-          color: #fff;
-        }
-      }
-    }
-
-    &.combobox-selected {
-      .pulldown {
-        display: block;
-        span {
-          display: block;
-        }
-      }
-      .fa-angle-down::before {
-        content: "";
-      }
-    }
+.dropdown-toggle {
+  position: relative;
+  
+  &::after {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translate(0, -50%);
   }
 }
-
+}
 main {
   padding: 1.5rem;
   .chart {
@@ -131,6 +95,8 @@ main {
         margin-top: 1rem;
         margin-bottom: 1rem;
         .container-group {
+          transform: translate(0, 0);
+
           .axis {
             display: none;
           }
@@ -167,7 +133,7 @@ main {
         }
         i {
           color: $pink;
-          margin: 0 .25rem;
+          margin: 0 0.25rem;
         }
       }
     }

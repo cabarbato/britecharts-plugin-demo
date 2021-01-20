@@ -1,5 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-/src/assets/sample_data
+/src/assets/data/data.csv
+.eslintcache
 
 # dependencies
 /node_modules

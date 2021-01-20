@@ -6,3 +6,24 @@ $green: #3ffa15;
 $pink: #fe53bb;
 $red: #ff5349;
 $dark: #04005e;
+
+$theme-colors: (
+        "light": $light,
+        "primary": $pink,
+        "secondary": $yellow,
+        "black": $dark,
+);
+
+// Body
+$body-color: $dark;
+
+// Misc
+$box-shadow: 0 0 50px rgba(0, 0, 0, 0.25);
+
+// Typography
+$font-family-sans-serif: 'Montserrat', sans-serif;
+
+// Button
+$btn-border-radius: 0;
+$btn-border-width: 2px;
+$btn-font-weight: 400;

@@ -5,6 +5,20 @@ import * as pym from "pym.js";
 import ReactPaginate from 'react-paginate';
 import ChartGraph from '../components/ChartGraph';
 
+type ChartProps = {
+    category,
+    categories
+  };
+type ChartState = {
+    data: object[],
+    category: string,
+    page: number,
+    offset: number,
+    per_page: number,
+    page_count: number
+    displayed: unknown
+  };
+
 const pymChild = new pym.Child(),
   label = process.env.REACT_APP_SAMPLE_LABEL,
   mapStateToProps = state => ({
@@ -12,7 +26,7 @@ const pymChild = new pym.Child(),
     categories: state.categoryReducer.categories
   });
 
-class AppChart extends React.Component {
+class AppChart extends React.Component<ChartProps, ChartState> {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +35,8 @@ class AppChart extends React.Component {
       page: 0,
       offset: 0,
       per_page: 3,
-      page_count: 0
+      page_count: 0,
+      displayed: <></>
     }
   }
   getCategories(reset) {
@@ -66,11 +81,11 @@ class AppChart extends React.Component {
       page,
       offset
     }, () => {
-      this.getCategories()
+      this.getCategories(false)
     });
   }
   componentDidMount() {
-    this.getCategories();
+    this.getCategories(false);
     pymChild.sendHeight();
   }
   componentDidUpdate() {

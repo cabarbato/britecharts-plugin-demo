@@ -1,0 +1,7 @@
+{
+    "CATEGORY": "string",
+    "VALUE_N__0": "number",
+    "VALUE_N__1": "number",
+    "VALUE_N__2": "number",
+    "LABEL": "string | number"
+}

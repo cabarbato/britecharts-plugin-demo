@@ -4,12 +4,11 @@
 A demo react app to test functionality of making a [Britecharts Mini-tooltip](https://britecharts.github.io/britecharts/module-Mini-tooltip.html) as a component to be used with [Britecharts React](https://github.com/britecharts/britecharts-react). **[View the demo here.](https://cabarbato.github.io/mini-tooltip-demo)**
 
 #### Progress: 
-![0%](https://progress-bar.dev/0/?width=400)
+![15%](https://progress-bar.dev/15/?width=400)
 
-- [ ] Phase 1: Basic bar chart functionality
+- [x] Phase 1: Basic bar chart functionality
 - [ ] Phase 2: Build mini tooltip 
-- [ ] Phase 3: ???
-- [ ] Phase 4: Profit
+- [ ] Phase 3: Publish mini tooltip as npm module and install
 
 ---
 
