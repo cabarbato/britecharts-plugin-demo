@@ -1,14 +1,15 @@
 
-## 💬  Britecharts React Mini Tooltip Demo
+## 💬  Britecharts React Plugin Demo
 
-A demo react app to test functionality of making a [Britecharts Mini-tooltip](https://britecharts.github.io/britecharts/module-Mini-tooltip.html) as a component to be used with [Britecharts React](https://github.com/britecharts/britecharts-react). **[View the demo here.](https://cabarbato.github.io/mini-tooltip-demo)**
+A demo react app to test functionality of making a [Britecharts Mini-tooltip](https://britecharts.github.io/britecharts/module-Mini-tooltip.html) as a component to be used with [Britecharts React](https://github.com/britecharts/britecharts-react), as well as test typings for helpers like WithResponsiveness. **[View the demo here.](https://cabarbato.github.io/britecharts-plugin-demo)**
 
 #### Progress: 
 ![15%](https://progress-bar.dev/15/?width=400)
 
 - [x] Phase 1: Basic bar chart functionality
 - [ ] Phase 2: Build mini tooltip 
-- [ ] Phase 3: Publish mini tooltip as npm module and install
+- [ ] Phase 3: Create typings for helpers 
+- [ ] Phase 4: Publish mini tooltip as npm module and install
 
 ---
 
